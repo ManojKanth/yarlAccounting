@@ -38,6 +38,14 @@ export default function LandingPage() {
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
+    // Elfsight widget loader (only runs in browser)
+    if (!window.elfsightWidgetScriptLoaded) {
+      const script = document.createElement('script');
+      script.src = 'https://static.elfsight.com/platform/platform.js';
+      script.async = true;
+      script.onload = () => { window.elfsightWidgetScriptLoaded = true; };
+      document.body.appendChild(script);
+    }
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showModal, navigate]);
 
@@ -97,8 +105,8 @@ export default function LandingPage() {
         <h2>What Our Clients Say</h2>
         {/* Free Elfsight Google Reviews widget embed (replace with your own widget ID if needed) */}
         <div className="reviews-placeholder">
-          <script src="https://static.elfsight.com/platform/platform.js" async></script>
-          <div class="elfsight-app-4cc76e6a-df27-498a-9dd9-8b7e948f5a95" data-elfsight-app-lazy></div>
+          {/* Elfsight widget for Google Reviews (React-compatible) */}
+          <div id="elfsight-widget"></div>
           <div style={{fontSize: '0.9em', color: '#6366f1', marginTop: '1em'}}>
             <a href="https://www.google.com/maps/place/?q=place_id:ChIJ3V7mS6FV_joRwsMQn-DAbmw" target="_blank" rel="noopener noreferrer">See all reviews on Google</a>
           </div>
