@@ -1,0 +1,133 @@
+.topbar {
+  width: 100vw;
+  min-width: 100vw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0;
+  background: linear-gradient(90deg, #006BB9 0%, #00324e 100%);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,107,185,0.08);
+  border: none;
+  overflow-x: hidden;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.company-logo {
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+  background: #fff;
+  padding: 0.2em;
+}
+.company-name {
+  font-size: 1.4em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.topbar-links {
+  display: flex;
+  gap: 2em;
+}
+.topbar-links a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 0.3em 0.7em;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.topbar-links a.active, .topbar-links a:hover {
+  background: #fff;
+  color: #006BB9;
+}
+.drawer-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.2em;
+  cursor: pointer;
+  margin-left: 1em;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: 2.5em;
+}
+.drawer-icon {
+  font-size: 2em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drawer-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.18);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.drawer-menu {
+  position: relative;
+  top: 0;
+  right: 0;
+  background: #fff;
+  color: #006BB9;
+  border-radius: 12px 0 0 12px;
+  box-shadow: 0 4px 24px rgba(0,107,185,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em 2em 2em 1.5em;
+  min-width: 220px;
+  max-width: 80vw;
+  z-index: 201;
+  animation: drawerIn 0.3s cubic-bezier(.4,0,.2,1);
+}
+@keyframes drawerIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.drawer-menu a {
+  color: #006BB9;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 0.5em 0;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.drawer-menu a:hover {
+  background: #eaf6ff;
+  color: #00324e;
+}
+@media (max-width: 700px) {
+  .topbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 1em 0;
+    min-width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .topbar-links {
+    display: none;
+  }
+}

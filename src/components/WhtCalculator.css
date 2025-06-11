@@ -1,0 +1,123 @@
+/* WHT Calculator styles */
+.wht-calc {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,107,185,0.08);
+  padding: 2.5em 1.5em 2em 1.5em;
+  margin: 2em auto;
+  max-width: 500px;
+  color: #00324e;
+  animation: fadeInCalc 0.7s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wht-calc h2 {
+  color: #006BB9;
+  margin-bottom: 1.2em;
+  font-size: 1.3em;
+  text-align: center;
+}
+.wht-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+}
+.wht-form label {
+  font-weight: 600;
+  color: #00324e;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3em;
+  width: 100%;
+  box-sizing: border-box;
+}
+.wht-form input[type="number"] {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.7em;
+  border: 2px solid #006BB9;
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
+  transition: border 0.2s;
+  background: #eaf6ff;
+  color: #111;
+  box-sizing: border-box;
+}
+.wht-form input[type="number"]::placeholder {
+  color: #555;
+  opacity: 1;
+}
+.wht-form input[type="number"]:focus {
+  border: 2px solid #00324e;
+}
+.wht-form select {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.7em;
+  border: 2px solid #006BB9;
+  border-radius: 8px;
+  font-size: 1em;
+  background: #eaf6ff;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+.wht-form select:focus {
+  border: 2px solid #00324e;
+}
+.wht-form button {
+  background: linear-gradient(90deg, #006BB9 0%, #00324e 100%);
+  color: #fff;
+  border: none;
+  padding: 0.7em 2em;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 0.5em;
+}
+.wht-form button:hover {
+  background: #00324e;
+  color: #fff;
+  transform: scale(1.04);
+}
+.wht-result {
+  margin-top: 1.2em;
+  font-size: 1.2em;
+  color: #006BB9;
+  font-weight: 700;
+  background: #eaf6ff;
+  border-radius: 8px;
+  padding: 0.7em 1em;
+  box-shadow: 0 2px 8px rgba(0,107,185,0.06);
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .wht-calc {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1.2em 0.5em;
+  }
+  .wht-form input[type="number"],
+  .wht-form select {
+    font-size: 1em;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+.wht-form select {
+  background: #eaf6ff;
+  color: #111;
+}

@@ -1,0 +1,33 @@
+/* Modern, creative currency converter styles */
+.currency-converter {
+  background: #fff;
+  max-width: 500px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(99,102,241,0.08);
+  padding: 32px 24px;
+  text-align: center;
+}
+.currency-converter h2 {
+  color: #6366f1;
+  font-size: 2rem;
+  margin-bottom: 1em;
+}
+.currency-converter ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.2rem;
+  color: #22223b;
+}
+.currency-converter li {
+  margin-bottom: 0.7em;
+  background: #e0e7ff;
+  padding: 0.7em 1em;
+  border-radius: 10px;
+  display: inline-block;
+  min-width: 200px;
+}
+.currency-converter p {
+  color: #e11d48;
+  font-weight: 600;
+}

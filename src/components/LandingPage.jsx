@@ -1,0 +1,125 @@
+import './LandingPage.css';
+import heroImg from '../assets/images.png'; // Add a creative SVG or PNG to assets
+import serviceIcon from '../assets/images.png'; // Add a service icon to assets
+import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+export default function LandingPage() {
+  // Collapsible FAQ state
+  const [open, setOpen] = useState(null);
+  const faqs = [
+    {
+      q: 'How do I register a company?',
+      a: 'We handle all paperwork and guide you through the process.'
+    },
+    {
+      q: 'What documents are needed for tax filing?',
+      a: 'We’ll provide a checklist and help you gather everything.'
+    },
+    {
+      q: 'How long does company registration take?',
+      a: 'Usually 3-5 working days after document submission.'
+    },
+    {
+      q: 'Do you offer business consulting?',
+      a: 'Yes, we offer a range of consulting services for new and existing businesses.'
+    }
+  ];
+
+  const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (showModal && modalRef.current && !modalRef.current.contains(event.target)) {
+        setShowModal(false);
+        navigate('/');
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showModal, navigate]);
+
+  return (
+    <section className="landing-page">
+      <header className="hero hero-grid">
+        <div className="hero-content">
+          <h1>Yarl Accounting</h1>
+          <p>Your trusted partner for tax filing & company registration in Sri Lanka</p>
+          <button className="get-started-btn" onClick={() => navigate('/get-started')}>Get Started</button>
+        </div>
+        <div className="hero-img">
+          <img src={heroImg} alt="Accounting illustration" />
+        </div>
+      </header>
+      <section className="services large-services">
+        <h2>Our Services</h2>
+        <div className="services-list">
+          <div className="service-card">
+            <img src={serviceIcon} alt="Tax" />
+            <div>
+              <h3>Income Tax Filing</h3>
+              <p>Fast, accurate, and compliant tax filing for individuals and businesses.</p>
+            </div>
+          </div>
+          <div className="service-card">
+            <img src={serviceIcon} alt="Company" />
+            <div>
+              <h3>New Company Registration</h3>
+              <p>End-to-end company registration with expert legal and business advice.</p>
+            </div>
+          </div>
+          <div className="service-card">
+            <img src={serviceIcon} alt="Consulting" />
+            <div>
+              <h3>Business Consulting</h3>
+              <p>Strategic consulting to help your business grow and stay compliant.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="faq">
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          {faqs.map((item, idx) => (
+            <li key={idx}>
+              <button className="faq-question" onClick={() => setOpen(open === idx ? null : idx)}>
+                {item.q}
+                <span>{open === idx ? '-' : '+'}</span>
+              </button>
+              {open === idx && <div className="faq-answer">{item.a}</div>}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="google-reviews">
+        <h2>What Our Clients Say</h2>
+        {/* Google Reviews widget embed */}
+        <div className="reviews-placeholder">
+          <iframe
+            title="Google Reviews"
+            src="https://search.google.com/local/reviews?placeid=YOUR_PLACE_ID"
+            width="100%"
+            height="350"
+            style={{ border: 0, borderRadius: '12px', minHeight: '350px' }}
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+          <div style={{fontSize: '0.9em', color: '#6366f1', marginTop: '1em'}}>
+            <a href="https://www.google.com/maps/place/?q=place_id:YOUR_PLACE_ID" target="_blank" rel="noopener noreferrer">See all reviews on Google</a>
+          </div>
+        </div>
+      </section>
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content" ref={modalRef}>
+            <h2>Modal Title</h2>
+            <p>Modal content goes here.</p>
+            <button onClick={() => { setShowModal(false); navigate('/'); }}>Close</button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
