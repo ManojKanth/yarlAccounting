@@ -99,7 +99,8 @@ export default function LandingPage() {
         <div className="reviews-placeholder">
           <iframe
             title="Google Reviews"
-            src="https://search.google.com/local/reviews?placeid=YOUR_PLACE_ID"
+            src="https://search.google.com/local/reviews?placeid=ChIJ3V7mS6FV_joRwsMQn-DAbmw
+"
             width="100%"
             height="350"
             style={{ border: 0, borderRadius: '12px', minHeight: '350px' }}
@@ -107,7 +108,7 @@ export default function LandingPage() {
             loading="lazy"
           ></iframe>
           <div style={{fontSize: '0.9em', color: '#6366f1', marginTop: '1em'}}>
-            <a href="https://www.google.com/maps/place/?q=place_id:YOUR_PLACE_ID" target="_blank" rel="noopener noreferrer">See all reviews on Google</a>
+            <a href="https://www.google.com/maps/place/?q=place_id:ChIJ3V7mS6FV_joRwsMQn-DAbmw" target="_blank" rel="noopener noreferrer">See all reviews on Google</a>
           </div>
         </div>
       </section>
