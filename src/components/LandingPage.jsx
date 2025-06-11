@@ -95,18 +95,10 @@ export default function LandingPage() {
       </section>
       <section className="google-reviews">
         <h2>What Our Clients Say</h2>
-        {/* Google Reviews widget embed */}
+        {/* Free Elfsight Google Reviews widget embed (replace with your own widget ID if needed) */}
         <div className="reviews-placeholder">
-          <iframe
-            title="Google Reviews"
-            src="https://search.google.com/local/reviews?placeid=ChIJ3V7mS6FV_joRwsMQn-DAbmw
-"
-            width="100%"
-            height="350"
-            style={{ border: 0, borderRadius: '12px', minHeight: '350px' }}
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+          <script src="https://static.elfsight.com/platform/platform.js" async></script>
+          <div class="elfsight-app-4cc76e6a-df27-498a-9dd9-8b7e948f5a95" data-elfsight-app-lazy></div>
           <div style={{fontSize: '0.9em', color: '#6366f1', marginTop: '1em'}}>
             <a href="https://www.google.com/maps/place/?q=place_id:ChIJ3V7mS6FV_joRwsMQn-DAbmw" target="_blank" rel="noopener noreferrer">See all reviews on Google</a>
           </div>
